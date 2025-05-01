@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --background: 245 245 245; /* soft off-white */
+  --surface: 255 255 255;
+  --primary: 131 117 105; /* #837569 */
+  --primary-hover: 112 100 89; /* darkened version */
+  --primary-txt: 255 255 255;
+
+  --text-primary: 33 33 33; /* dark gray/black */
+  --text-secondary: 87 87 87;
+  --text-muted: 136 136 136;
+
+  --hover-bg: 240 240 240;
+
+  --color-background: rgba(var(--background));
+  --color-surface: rgba(var(--surface));
+  --color-primary: rgba(var(--primary));
+  --color-primary-hover: rgba(var(--primary-hover));
+  --color-primary-txt: rgba(var(--primary-txt));
+  --color-text-primary: rgb(var(--text-primary));
+  --color-text-secondary: rgb(var(--text-secondary));
+  --color-text-muted: rgb(var(--text-muted));
+  --color-hover-bg: rgb(var(--hover-bg));
+}
+.dark {
+  --background: 20 20 20;
+  --surface: 35 35 35;
+  --primary: 131 117 105;
+  --primary-hover: 163 147 133;
+  --primary-txt: 255 255 255;
+
+  --text-primary: 225 225 225;
+  --text-secondary: 180 180 180;
+  --text-muted: 140 140 140;
+
+  --hover-bg: 45 45 45;
+
+  --color-background: rgba(var(--background));
+  --color-surface: rgba(var(--surface));
+  --color-primary: rgba(var(--primary));
+  --color-primary-hover: rgba(var(--primary-hover));
+  --color-primary-txt: rgba(var(--primary-txt));
+  --color-text-primary: rgb(var(--text-primary));
+  --color-text-secondary: rgb(var(--text-secondary));
+  --color-text-muted: rgb(var(--text-muted));
+  --color-hover-bg: rgb(var(--hover-bg));
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: "Lexend", sans-serif;
+  position: relative;
+}
+
+main {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1500px;
+  display: flex;
+  flex-direction: column;
+}
+
+pre {
+  font-family: "Lexend", sans-serif;
+}
+
+.primary-btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-primary-txt);
+  background-color: rgba(var(--primary));
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  transition: background-color ease-in-out 150ms;
+}
+
+.secondary-btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--color-primary-txt);
+  background-color: rgba(var(--primary) / 0.4);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  &:hover {
+    background-color: var(--color-primary-hover);
+  }
+
+  transition: background-color ease-in-out 150ms;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}

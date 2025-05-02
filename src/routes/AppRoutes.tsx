@@ -10,7 +10,7 @@ import Home from "../pages/Home";
 import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import Posts from "../pages/Posts";
-import PostDetail from "../pages/PageDetail";
+import PostDetail from "../pages/PostDetail";
 
 import ScrollToTop from "../components/ScrollToTop";
 

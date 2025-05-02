@@ -8,6 +8,7 @@ export interface IUser {
 }
 
 export interface IPost {
+  authorId?: string;
   id: string;
   title: string;
   content: string;
@@ -16,5 +17,19 @@ export interface IPost {
   author?: {
     firstName: string;
     lastName: string;
+  };
+}
+
+export interface IComment {
+  id: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  postId: string;
+  userId: string;
+  user: {
+    firstName: string;
+    lastName: string;
+    username: string;
   };
 }

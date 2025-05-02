@@ -67,6 +67,7 @@ main {
 }
 
 pre {
+  text-wrap: wrap;
   font-family: "Lexend", sans-serif;
 }
 

@@ -10,6 +10,7 @@ import { IPost } from "../interfaces";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostDetailSkeleton from "../components/skeletons/PostDetailSkeleton";
+import CommentSection from "../sections/CommentSection";
 
 const PostDetail = () => {
   const [postDetails, setPostDetails] = useState<IPost | null>(null);
@@ -25,7 +26,6 @@ const PostDetail = () => {
     setLoading(true);
     try {
       const response = await axiosInstance.get(`/posts/post/${postId}`);
-      console.log(response.data)
       setPostDetails(response.data?.post);
     } catch (error) {
       handleAxiosError(error, "Failed to fetch Post Details", setError);
@@ -66,11 +66,15 @@ const PostDetail = () => {
 
                   <pre
                     role="textbox"
-                    className="resize-none min-h-[50vh] text-wrap w-full focus:outline-none align-middle border-none rounded-md"
+                    className="resize-none text-wrap w-full focus:outline-none align-middle border-none rounded-md"
                   >
                     {postDetails?.content}
                   </pre>
                 </div>
+                <CommentSection
+                  postId={postDetails?.id}
+                  authorId={postDetails?.authorId}
+                />
               </>
             ) : (
               // Error

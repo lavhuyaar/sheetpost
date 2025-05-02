@@ -1,37 +1,38 @@
 import { useEffect, useState } from "react";
-
 import axiosInstance from "../api/axiosInstance";
 import handleAxiosError from "../utils/handleAxiosError";
-
-import { IPost } from "../interfaces";
-
+import { IAuthor, IPost } from "../interfaces";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import PostSkeleton from "../components/skeletons/PostSkeleton";
+import Footer from "../components/Footer";
+import { useParams } from "react-router";
 import PostCard from "../components/PostCard";
 import Pagination from "../components/Pagination";
 
 const POSTS_LIMIT: number = 12;
 
-const Posts = () => {
+const AuthorPosts = () => {
   const [posts, setPosts] = useState<IPost[] | null>(null);
   const [postsCount, setPostsCount] = useState<number | null>(null);
+  const [author, setAuthor] = useState<IAuthor | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [error, setError] = useState<
     { status?: number; message?: string } | undefined
   >(undefined);
+  const { authorId } = useParams();
 
-  //Fetches all the published posts
-  const getPosts = async () => {
+  //Fetches all the posts of the logged in author
+  const getAuthorPosts = async () => {
     setLoading(true);
     try {
       const response = await axiosInstance.get(
-        `/posts?limit=${POSTS_LIMIT}&page=${currentPage}`
+        `/posts/author/${authorId}?limit=${POSTS_LIMIT}&page=${currentPage}`
       );
-      const { posts, postsCount } = response.data;
+      const { posts, totalCount, author } = response.data;
       setPosts(posts);
-      setPostsCount(postsCount);
+      setPostsCount(totalCount);
+      setAuthor(author);
     } catch (error) {
       handleAxiosError(error, "Failed to get posts", setError);
     } finally {
@@ -40,13 +41,13 @@ const Posts = () => {
   };
 
   useEffect(() => {
-    if (!currentPage) return;
+    if (!currentPage || !authorId) return;
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-    getPosts();
-  }, [currentPage]);
+    getAuthorPosts();
+  }, [currentPage, authorId]);
 
   return (
     <>
@@ -69,7 +70,8 @@ const Posts = () => {
               {!error ? (
                 <>
                   <h1 className="px-2 col-span-full">
-                    All Posts {postsCount !== null ? `(${postsCount})` : ""}
+                    Posts by {`${author?.firstName} ${author?.lastName}`}{" "}
+                    {postsCount !== null ? `(${postsCount})` : ""}
                   </h1>
                   {posts && posts.length > 0 ? (
                     <>
@@ -119,4 +121,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default AuthorPosts;

@@ -33,3 +33,10 @@ export interface IComment {
     username: string;
   };
 }
+
+export interface IAuthor {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email?: string;
+}

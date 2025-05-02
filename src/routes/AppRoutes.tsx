@@ -13,6 +13,7 @@ import Posts from "../pages/Posts";
 import PostDetail from "../pages/PostDetail";
 
 import ScrollToTop from "../components/ScrollToTop";
+import AuthorPosts from "../pages/AuthorPosts";
 
 const AppRoutes = () => {
   const { theme } = useTheme();
@@ -40,6 +41,7 @@ const AppRoutes = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:postId" element={<PostDetail />} />
+        <Route path="/author/:authorId" element={<AuthorPosts />} />
       </Routes>
       <ToastContainer theme={theme} pauseOnHover={false} draggable={false} />
     </>

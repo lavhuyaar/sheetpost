@@ -3,11 +3,23 @@ import formatDate from "../utils/formatDate";
 
 import { IPost } from "../interfaces";
 
-const PostCard: React.FC<IPost> = ({ title, id, content, createdAt }) => {
+const PostCard: React.FC<IPost> = ({
+  title,
+  id,
+  content,
+  createdAt,
+  authorId,
+  author,
+}) => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
     navigate(`/posts/${id}`);
+  };
+
+  const authorNameOnClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    navigate(`/author/${authorId}`);
   };
 
   return (
@@ -26,6 +38,16 @@ const PostCard: React.FC<IPost> = ({ title, id, content, createdAt }) => {
         <p className="h-28 text-xs w-full whitespace-break-spaces text-wrap overflow-ellipsis overflow-hidden">
           {content}
         </p>
+
+        <h5 className="text-sm">
+          Posted by{" "}
+          <button
+            className="text-primary underline hover:text-primary-hover transition"
+            onClick={authorNameOnClick}
+          >
+            {author?.firstName} {author?.lastName}
+          </button>
+        </h5>
 
         <div className="h-6 w-full flex items-center justify-between">
           <div className="flex items-center gap-2">

@@ -1,6 +1,5 @@
 import { NavLink } from "react-router";
 
-import useAuth from "../hooks/useAuth";
 import useTheme from "../hooks/useTheme";
 
 import Footer from "../components/Footer";
@@ -19,23 +18,13 @@ const Logo = () => {
   const { theme } = useTheme();
 
   return theme === "dark" ? (
-    <img
-      src="/images/sheetpost_logo_dark.png"
-      alt=""
-      className="size-60"
-    />
+    <img src="/images/sheetpost_logo_dark.png" alt="" className="size-60" />
   ) : (
-    <img
-      src="/images/sheetpost_logo_light.png"
-      alt=""
-      className="size-60"
-    />
+    <img src="/images/sheetpost_logo_light.png" alt="" className="size-60" />
   );
 };
 
 const Home = () => {
-  const { userInfo } = useAuth();
-
   return (
     <>
       <Header />
@@ -65,15 +54,14 @@ const Home = () => {
             </div>
           </section>
 
-          {userInfo ? (
-            <NavLink to="/dashboard" className="primary-btn max-w-[200px] mt-4">
-              Go to Dashboard
+          <section className="flex items-center flex-wrap gap-5">
+            <a href="#" className="primary-btn max-w-[200px] mt-4">
+              Be an Author
+            </a>
+            <NavLink to="/posts" className="primary-btn max-w-[200px] mt-4">
+              See all posts
             </NavLink>
-          ) : (
-            <NavLink to="/login" className="primary-btn max-w-[200px] mt-4">
-              Get Started Now!
-            </NavLink>
-          )}
+          </section>
         </div>
       </main>
       <Footer />

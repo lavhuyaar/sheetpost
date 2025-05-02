@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState } from "react";
 import { useNavigate } from "react-router";
 
-// import axiosInstance from "../api/axiosInstance";
+import axiosInstance from "../api/axiosInstance";
 import handleAxiosError from "../utils/handleAxiosError";
 
 import { IUser } from "../interfaces";
@@ -26,16 +26,16 @@ export const AuthProvider = ({ children }: { children?: ReactNode }) => {
     password: string;
   }) => {
     try {
-      // const response = await axiosInstance.post("/loginAdmin", credentials);
-      // const { author, token } = response.data;
-      // setUserInfo(author);
+      const response = await axiosInstance.post("/login", credentials);
+      const { user, token } = response.data;
+      setUserInfo(user);
       const searchParams = new URLSearchParams(location.search);
       const goToPath = searchParams.get("redirect");
       navigate(goToPath || location.pathname, { replace: true });
 
       //Stores credentials and authToken in localStorage
       localStorage.setItem("userCredentials", JSON.stringify(credentials));
-      // localStorage.setItem("authToken", token);
+      localStorage.setItem("authToken", token);
     } catch (error) {
       handleAxiosError(error, "Failed to login user!");
       setUserInfo(null);

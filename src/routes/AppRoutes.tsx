@@ -7,6 +7,10 @@ import useAuth from "../hooks/useAuth";
 
 //Pages
 import Home from "../pages/Home";
+import SignUp from "../pages/SignUp";
+import Login from "../pages/Login";
+import Posts from "../pages/Posts";
+import PostDetail from "../pages/PageDetail";
 
 import ScrollToTop from "../components/ScrollToTop";
 
@@ -32,6 +36,10 @@ const AppRoutes = () => {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:postId" element={<PostDetail />} />
       </Routes>
       <ToastContainer theme={theme} pauseOnHover={false} draggable={false} />
     </>

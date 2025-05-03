@@ -79,12 +79,12 @@ const CommentSection = ({
   };
 
   return (
-    <section className="w-full rounded-md flex flex-col gap-4 mt-4 bg-surface p-4">
+    <section className="w-full rounded-md flex flex-col gap-4 mt-4">
       {!loading ? (
         <>
           {!error ? (
             <>
-              <h1 className="px-2 col-span-full text-2xl">
+              <h1 className="col-span-full text-2xl">
                 Comments {commentsCount !== null ? `(${commentsCount})` : ""}
               </h1>
               {comments && comments.length > 0 ? (

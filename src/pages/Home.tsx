@@ -55,7 +55,7 @@ const Home = () => {
           </section>
 
           <section className="flex items-center flex-wrap gap-5">
-            <a href="#" className="primary-btn max-w-[200px] mt-4">
+            <a href="https://sheetpost-admin.vercel.app" target="_main" className="primary-btn max-w-[200px] mt-4">
               Be an Author
             </a>
             <NavLink to="/posts" className="primary-btn max-w-[200px] mt-4">

@@ -1,54 +1,35 @@
-# React + TypeScript + Vite
+# Sheetpost Main Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This is the repository of main website of Sheetpost, a blog API website
+- This web app is for every users, and is conncted to the [Admin Panel](https://sheetpost-admin.vercel.app) and is powered by [Express backend](https://github.com/lavhuyaar/sheetpost_backend.git).
 
-Currently, two official plugins are available:
+## Tools used:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Typescript
+- ReactJS
+- React Router
+- React Hook Form
+- React Icons
+- Vite
+- Axios
+- Toastify
 
-## Expanding the ESLint configuration
+### Features:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- User can create an account with unique username
+- He can login
+- He can read published posts without logging in
+- He can add comments to public posts (after logging in)
+- He can edit and delete his own comments
+- He can read all comments made on any of his posts and delete any comment
+- He can read published posts of a particular author
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Personal thoughts:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+If you're coming from the backend or admin panel repo, did you noticed that the README is very similar? That is because this README has been copied and modified from that README only, and I've done this copy-pasta thing with the Pages, UI, Components, functionality as well. This is why the main website took way lesser time to complete than Admin Panel.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The color palette from this website is wayyyy better than the Admin panel (intentionally did that). I liked it, although a user can not do much other than commenting, but hey, this was supposed to be a simple functioning website, and I was successful in making one, so I'm happy :)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+The deployment went super smooth. This was my first website where I had separate frontend and backend and I loved it.
+
+Keep up the good work Lav (03-05-2025)

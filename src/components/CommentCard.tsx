@@ -111,7 +111,7 @@ const CommentCard = ({
                 <div className="flex items-center">
                   <button
                     onClick={enableEditMode}
-                    title="Edit post"
+                    title="Edit comment"
                     type="button"
                     className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
                   >
@@ -119,7 +119,7 @@ const CommentCard = ({
                   </button>
                   <button
                     onClick={openDeleteModal}
-                    title="Delete post"
+                    title="Delete comment"
                     type="button"
                     className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
                   >

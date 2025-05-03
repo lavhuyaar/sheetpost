@@ -9,6 +9,7 @@ import { MdDeleteOutline } from "react-icons/md";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import commentSchema from "../validators/commentSchema";
+import timeAgo from "../utils/timeAgo";
 
 interface ICommentProps extends IComment {
   getComments: () => Promise<void>;
@@ -20,6 +21,7 @@ const CommentCard = ({
   id,
   user,
   userId,
+  createdAt,
 }: ICommentProps) => {
   const [isEditMode, setIsEditMode] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -92,7 +94,7 @@ const CommentCard = ({
 
   return (
     <>
-      <div className="rounded-md border-text-primary/10 p-4 border-1 flex flex-col w-full">
+      <div className="rounded-md border-text-primary/10 p-4 border-1 flex flex-col w-full gap-1">
         {!isEditMode ? (
           <>
             <h4>
@@ -103,26 +105,29 @@ const CommentCard = ({
               )
             </h4>
             <pre>{content}</pre>
-            {userInfo?.id === userId && (
-              <div className="flex items-center self-end">
-                <button
-                  onClick={enableEditMode}
-                  title="Edit post"
-                  type="button"
-                  className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
-                >
-                  <RiEditBoxLine />
-                </button>
-                <button
-                  onClick={openDeleteModal}
-                  title="Delete post"
-                  type="button"
-                  className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
-                >
-                  <MdDeleteOutline />
-                </button>
-              </div>
-            )}{" "}
+            <div className="w-full flex items-center justify-between">
+              <p className="text-xs">Added {timeAgo(createdAt)}</p>
+              {userInfo?.id === userId && (
+                <div className="flex items-center">
+                  <button
+                    onClick={enableEditMode}
+                    title="Edit post"
+                    type="button"
+                    className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
+                  >
+                    <RiEditBoxLine />
+                  </button>
+                  <button
+                    onClick={openDeleteModal}
+                    title="Delete post"
+                    type="button"
+                    className="cursor-pointer hover:text-black hover:bg-primary-hover transition p-2 text-xl rounded-full"
+                  >
+                    <MdDeleteOutline />
+                  </button>
+                </div>
+              )}{" "}
+            </div>
           </>
         ) : (
           // Edit comment form

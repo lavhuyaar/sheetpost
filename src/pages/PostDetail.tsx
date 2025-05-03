@@ -11,6 +11,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import PostDetailSkeleton from "../components/skeletons/PostDetailSkeleton";
 import CommentSection from "../sections/CommentSection";
+import timeAgo from "../utils/timeAgo";
 
 const PostDetail = () => {
   const [postDetails, setPostDetails] = useState<IPost | null>(null);
@@ -70,6 +71,16 @@ const PostDetail = () => {
                   >
                     {postDetails?.content}
                   </pre>
+                  <p>
+                    Posted by{" "}
+                    <NavLink
+                      to={`/author/${postDetails?.authorId}`}
+                      className="underline text-primary hover:text-primary-hover transition cursor-pointer"
+                    >
+                      <b>{`${postDetails?.author?.firstName} ${postDetails?.author?.lastName}`}</b>
+                    </NavLink>{" "}
+                    {postDetails?.createdAt && timeAgo(postDetails.createdAt)}
+                  </p>
                 </div>
                 <CommentSection
                   postId={postDetails?.id}

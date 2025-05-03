@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router";
-import formatDate from "../utils/formatDate";
 
 import { IPost } from "../interfaces";
+
+import timeAgo from "../utils/timeAgo";
 
 const PostCard: React.FC<IPost> = ({
   title,
@@ -40,18 +41,26 @@ const PostCard: React.FC<IPost> = ({
         </p>
 
         <h5 className="text-sm">
-          Posted by{" "}
-          <button
-            className="text-primary underline hover:text-primary-hover transition"
-            onClick={authorNameOnClick}
-          >
-            {author?.firstName} {author?.lastName}
-          </button>
+          {author ? (
+            <>
+              {" "}
+              Posted by{" "}
+              <button
+                className="text-primary underline hover:text-primary-hover transition cursor-pointer"
+                onClick={authorNameOnClick}
+              >
+                {author?.firstName} {author?.lastName}
+              </button>{" "}
+            </>
+          ) : (
+            "Posted "
+          )}
+          {timeAgo(createdAt)}
         </h5>
 
         <div className="h-6 w-full flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <p className="text-sm">{formatDate(createdAt)}</p>
+            <p className="text-sm">{timeAgo(createdAt)}</p>
           </div>
         </div>
       </div>

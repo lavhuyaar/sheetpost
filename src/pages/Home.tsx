@@ -7,7 +7,7 @@ import Header from "../components/Header";
 
 const FeatureCard = ({ content }: { content: string }) => {
   return (
-    <div className="text-lg flex items-center justify-center px-6 py-6 bg-surface rounded-md">
+    <div className="text-lg flex w-full sm:w-auto sm:max-w-[200px] items-center justify-center px-6 py-6 bg-surface rounded-md">
       {content}
     </div>
   );
@@ -54,11 +54,11 @@ const Home = () => {
             </div>
           </section>
 
-          <section className="flex items-center flex-wrap gap-5">
-            <a href="https://sheetpost-admin.vercel.app" target="_main" className="primary-btn max-w-[200px] mt-4">
+          <section className="flex flex-col sm:flex-row items-center justify-center flex-wrap sm:gap-5">
+            <a href="https://sheetpost-admin.vercel.app" target="_main" className="primary-btn w-full sm:w-auto sm:max-w-[200px] mt-4">
               Be an Author
             </a>
-            <NavLink to="/posts" className="primary-btn max-w-[200px] mt-4">
+            <NavLink to="/posts" className="primary-btn w-full sm:w-auto sm:max-w-[200px] mt-4">
               See all posts
             </NavLink>
           </section>

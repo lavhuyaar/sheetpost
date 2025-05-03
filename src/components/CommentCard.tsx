@@ -36,6 +36,7 @@ const CommentCard = ({
     formState: { errors },
   } = useForm<{ content: string }>({ resolver: yupResolver(commentSchema) });
 
+  //Edits comment
   const editComment = async (values: { content: string }) => {
     toast.loading("Editing comment...");
     try {

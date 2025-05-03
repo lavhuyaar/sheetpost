@@ -6,8 +6,8 @@ const commentSchema = yup.object({
     .trim()
     .test(
       "length",
-      "Comment must be atleast 1 letter",
-      (value) => typeof value === "string" && value.trim().length >= 1
+      "Comment must be atleast 1 letter and cannot be more than 1000 letters",
+      (value) => typeof value === "string" && value.trim().length >= 1 && value.trim().length <= 1000
     )
     .required(),
 });

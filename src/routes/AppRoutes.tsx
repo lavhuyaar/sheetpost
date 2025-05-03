@@ -11,9 +11,10 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import Posts from "../pages/Posts";
 import PostDetail from "../pages/PostDetail";
+import PageNotFound from "../pages/PageNotFound";
+import AuthorPosts from "../pages/AuthorPosts";
 
 import ScrollToTop from "../components/ScrollToTop";
-import AuthorPosts from "../pages/AuthorPosts";
 
 const AppRoutes = () => {
   const { theme } = useTheme();
@@ -42,6 +43,7 @@ const AppRoutes = () => {
         <Route path="/posts" element={<Posts />} />
         <Route path="/posts/:postId" element={<PostDetail />} />
         <Route path="/author/:authorId" element={<AuthorPosts />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <ToastContainer theme={theme} pauseOnHover={false} draggable={false} />
     </>

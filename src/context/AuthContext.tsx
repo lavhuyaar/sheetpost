@@ -57,4 +57,4 @@ export const AuthProvider = ({ children }: { children?: ReactNode }) => {
   );
 };
 
-export default AuthContext;
+export { AuthContext };

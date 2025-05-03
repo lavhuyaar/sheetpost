@@ -30,7 +30,7 @@ const Pagination = ({
           key={i}
           className={`${
             currentPage === i
-              ? "bg-primary text-white"
+              ? "bg-primary text-primary-txt"
               : "bg-transparent text-primary"
           } cursor-pointer hover:bg-primary hover:text-primary-txt py-1 px-2 rounded-md transition`}
           onClick={() => handlePageChange(i)}

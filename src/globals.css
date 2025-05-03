@@ -2,46 +2,47 @@
 @import "tailwindcss";
 
 @theme {
-  --background: 245 245 245; /* soft off-white */
+  --background: 248 245 252; /* soft lavender-tinted white */
   --surface: 255 255 255;
-  --primary: 131 117 105; /* #837569 */
-  --primary-hover: 112 100 89; /* darkened version */
+  --primary: 142 120 200; /* lavender */
+  --primary-hover: 124 105 180; /* deeper lavender */
   --primary-txt: 255 255 255;
 
-  --text-primary: 33 33 33; /* dark gray/black */
-  --text-secondary: 87 87 87;
-  --text-muted: 136 136 136;
+  --text-primary: 30 30 30; /* near black */
+  --text-secondary: 90 90 90; /* gray */
+  --text-muted: 140 140 140;
 
-  --hover-bg: 240 240 240;
+  --hover-bg: 240 238 250; /* faint lavender background */
 
-  --color-background: rgba(var(--background));
-  --color-surface: rgba(var(--surface));
-  --color-primary: rgba(var(--primary));
-  --color-primary-hover: rgba(var(--primary-hover));
-  --color-primary-txt: rgba(var(--primary-txt));
+  --color-background: rgb(var(--background));
+  --color-surface: rgb(var(--surface));
+  --color-primary: rgb(var(--primary));
+  --color-primary-hover: rgb(var(--primary-hover));
+  --color-primary-txt: rgb(var(--primary-txt));
   --color-text-primary: rgb(var(--text-primary));
   --color-text-secondary: rgb(var(--text-secondary));
   --color-text-muted: rgb(var(--text-muted));
   --color-hover-bg: rgb(var(--hover-bg));
 }
+
 .dark {
-  --background: 20 20 20;
-  --surface: 35 35 35;
-  --primary: 131 117 105;
-  --primary-hover: 163 147 133;
-  --primary-txt: 255 255 255;
+  --background: 22 20 30; /* dark indigo-lavender */
+  --surface: 35 33 45; /* soft deep purple-gray */
+  --primary: 173 142 255; /* brighter lavender */
+  --primary-hover: 196 170 255; /* even more vibrant */
+  --primary-txt: 20 20 20;
 
-  --text-primary: 225 225 225;
+  --text-primary: 230 230 230;
   --text-secondary: 180 180 180;
-  --text-muted: 140 140 140;
+  --text-muted: 150 150 150;
 
-  --hover-bg: 45 45 45;
+  --hover-bg: 48 44 60; /* muted lavender-gray */
 
-  --color-background: rgba(var(--background));
-  --color-surface: rgba(var(--surface));
-  --color-primary: rgba(var(--primary));
-  --color-primary-hover: rgba(var(--primary-hover));
-  --color-primary-txt: rgba(var(--primary-txt));
+  --color-background: rgb(var(--background));
+  --color-surface: rgb(var(--surface));
+  --color-primary: rgb(var(--primary));
+  --color-primary-hover: rgb(var(--primary-hover));
+  --color-primary-txt: rgb(var(--primary-txt));
   --color-text-primary: rgb(var(--text-primary));
   --color-text-secondary: rgb(var(--text-secondary));
   --color-text-muted: rgb(var(--text-muted));
@@ -109,12 +110,4 @@ pre {
 
 ::-webkit-scrollbar-track {
   background: rgba(var(--background));
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-hover);
 }

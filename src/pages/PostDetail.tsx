@@ -61,13 +61,13 @@ const PostDetail = () => {
                 </NavLink>
                 {/* // Post details */}
                 <div className="flex flex-col gap-3 bg-surface p-5 sm:p-8 w-full rounded-lg drop-shadow-[4px, 0px, 4px] drop-shadow-primary">
-                  <h2 className="text-3xl break-words font-semibold focus:outline-none align-middle border-none rounded-md">
+                  <h2 className="text-3xl break-words font-semibold focus:outline-none align-middle border-none rounded-md break-all">
                     {postDetails?.title}
                   </h2>
 
                   <pre
                     role="textbox"
-                    className="resize-none text-wrap w-full focus:outline-none align-middle border-none rounded-md"
+                    className="resize-none text-wrap w-full focus:outline-none align-middle border-none rounded-md break-all"
                   >
                     {postDetails?.content}
                   </pre>

@@ -53,9 +53,8 @@ const PostCard: React.FC<IPost> = ({
               </button>{" "}
             </>
           ) : (
-            "Posted "
+            `Posted ${timeAgo(createdAt)}`
           )}
-          {timeAgo(createdAt)}
         </h5>
 
         <div className="h-6 w-full flex items-center justify-between">

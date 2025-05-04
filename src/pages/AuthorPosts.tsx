@@ -107,7 +107,7 @@ const AuthorPosts = () => {
           ) : (
             // Skeleton posts
             <>
-              <div className="animate-pulse h-8 w-4/5 sm:w-1/5 sm:ml-2 bg-surface col-span-full" />
+              <div className="animate-pulse h-8 w-4/5 sm:w-1/5 bg-surface col-span-full" />
               {Array.from({ length: POSTS_LIMIT }).map((_, i) => (
                 <PostSkeleton key={i} />
               ))}
